@@ -4,12 +4,23 @@
   />
 
   <div>
+    <img 
+      :src="link_img" 
+      v-bind:alt="imgAlt"
+    >
+
    <div 
     v-for="list in todos" 
     :key="list.id"
   >
-   {{ list.id }} /{{ list.title }} / {{ list.completed }}
-   </div>
+
+  <img 
+    v-if="list.link_user_img"
+    :src="list.link_user_img" 
+  />  
+  {{ list.id }} /{{ list.title }} / {{ list.completed }}
+  
+  </div>
 
   </div>
 
@@ -39,6 +50,8 @@ export default {
 
   data() {
     return {
+      link_img: 'https://via.placeholder.com/150',
+      imgAlt:'foto lex',
       todos: 
         // 20230330093311
         // https://jsonplaceholder.typicode.com/todos
@@ -48,19 +61,22 @@ export default {
                 "userId": 1,
                 "id": 1,
                 "title": "delectus aut autem",
-                "completed": false
+                "completed": false,
+                "link_user_img": 'https://via.placeholder.com/150',
               },
               {
                 "userId": 1,
                 "id": 2,
                 "title": "quis ut nam facilis et officia qui",
-                "completed": false
+                "completed": false,
+                "link_user_img": 'https://via.placeholder.com/150',
               },
               {
                 "userId": 1,
                 "id": 3,
                 "title": "fugiat veniam minus",
-                "completed": false
+                "completed": false,
+                "link_user_img": 'https://via.placeholder.com/150',
               },
               {
                 "userId": 1,
