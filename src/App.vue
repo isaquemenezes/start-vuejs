@@ -15,72 +15,83 @@
       type="text"
     
     >
-    {{ name }}
+    <button
+      v-on:click="onClick()"
+    >
+    Enviar
+
+    </button>
+    </div>
+  <br><br><br>
+
+  <div>
+
+    <button
+      @click="_onClick"
+    >
+    Clickar e capturando o eventos
+
+    </button>
+   
+
   </div>
   <br><br><br>
 
   <div>
-    <p>Sports</p> 
-    <select v-model="sports" >
-      <option value="f">futebol</option>
-      <option value="n">natacao</option>
-      <option value="g">ginastica</option>
+    <form 
+      action="https://google.com/"
+      @submit="onSubmit()"
+    >
+    <button
+      type="submit"
+    >
+    Clickar Form
 
-    </select>
-    {{ sports }}
-
-  </div>
-  <br><br><br>
-
-  <div>
-    <label for="">NewLetter</label>
-    <input 
-      v-model="newletter"
-      type="radio"
-      value="sim"
-    >Sim <br>
-    <input 
-      v-model="newletter"
-      type="radio"
-      value="nao"
-    >Nao<br> <br>
-
-    {{ newletter }}
+    </button>
+     </form>
     
   </div>
   <br><br><br>
 
   <div>
-    <label for="">Contrato</label>
-    <input 
-      v-model="contract"
-      type="checkbox"
-    
-    >Aceite os termos <br>
-   <br> <br>
 
-    {{ contract }}
+    <h2>Modificadores de Eventos</h2>
+    
+    <form 
+      action="https://google.com/"
+      @submit.prevent="onSubmit()"
+    >
+    <button
+      type="submit"
+    >
+    Clickar Form
+
+    </button>
+
+   
+    </form>
+    
   </div>
   <br><br><br>
 
   
   <div>
-    <label for="">Defina sua color:</label>
-    <input 
-      v-model="colors"
-      type="checkbox"
-      value="yellow"
+    <form 
     
-    >Yellow <br>
-    <input 
-      v-model="colors"
-      type="checkbox"
-      value="blue"
     
-    >Blue <br>
-   <br> <br>
+    >
+    <button
+      type="submit"
+    >
+    Clickar Form
 
-    {{ colors }}
+    </button>
+
+    <input 
+      type="text"
+      @keyup="onKeyUp"
+    />
+    </form>
   </div>
 
   
@@ -99,14 +110,23 @@ export default {
 
   data() {
     return {
-      name: 'jack son',
-      // sports:'',
-      sports:'n',
-      // newletter:''
-      newletter:'nao',
-      contract: false,
-      colors:[]
+     
     
+    }
+  },
+
+  methods:{
+    onClick() {
+      console.log('Clickou !');
+    },
+    _onClick($e) {
+      console.log('Clickou com capture!', $e);
+    },
+    onSubmit() {
+      console.log('submit');
+    },
+    onKeyUp($event) {
+      console.log('up', $event);
     }
   }
 }
