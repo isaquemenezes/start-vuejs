@@ -1,50 +1,112 @@
 <template>
-  <FirstHeader />
+  
 
   <div>
-    <h1
-      :class="class_style"
-    >
-    Class e Styles Dinamicos</h1>
-
-     <h3
-      :class="{'class_style': true, 'title-home': isHome}"
-    >
-     By Object styles Dinamicos</h3>
-
-    <p
-      :class="[ 'text', 'class_style']"
-    >
-
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum molestiae, 
-      possimus quo veniam blanditiis at inventore adipisci ad id temporibus, 
-      enim, nam aut necessitatibus magni optio sed sint a! Adipisci!
-    </p>
+    <h1>two way  data Biding </h1>
+    <p>v-model</p>
+   
   </div>
+
+
+  <div>
+    <label for="">Nome: </label> <br>
+    <input 
+      v-model="name"
+      type="text"
+    
+    >
+    {{ name }}
+  </div>
+  <br><br><br>
+
+  <div>
+    <p>Sports</p> 
+    <select v-model="sports" >
+      <option value="f">futebol</option>
+      <option value="n">natacao</option>
+      <option value="g">ginastica</option>
+
+    </select>
+    {{ sports }}
+
+  </div>
+  <br><br><br>
+
+  <div>
+    <label for="">NewLetter</label>
+    <input 
+      v-model="newletter"
+      type="radio"
+      value="sim"
+    >Sim <br>
+    <input 
+      v-model="newletter"
+      type="radio"
+      value="nao"
+    >Nao<br> <br>
+
+    {{ newletter }}
+    
+  </div>
+  <br><br><br>
+
+  <div>
+    <label for="">Contrato</label>
+    <input 
+      v-model="contract"
+      type="checkbox"
+    
+    >Aceite os termos <br>
+   <br> <br>
+
+    {{ contract }}
+  </div>
+  <br><br><br>
+
+  
+  <div>
+    <label for="">Defina sua color:</label>
+    <input 
+      v-model="colors"
+      type="checkbox"
+      value="yellow"
+    
+    >Yellow <br>
+    <input 
+      v-model="colors"
+      type="checkbox"
+      value="blue"
+    
+    >Blue <br>
+   <br> <br>
+
+    {{ colors }}
+  </div>
+
   
 
   
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
-import FirstHeader from './components/FirstHeader.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    FirstHeader
+    
   },
 
   data() {
     return {
-      isHome: false,
-      class_style: 'title',
-      text:'text'
-
+      name: 'jack son',
+      // sports:'',
+      sports:'n',
+      // newletter:''
+      newletter:'nao',
+      contract: false,
+      colors:[]
+    
     }
   }
 }
@@ -60,19 +122,4 @@ export default {
   margin-top: 60px;
 }
 
-.title {
-  font-size: 3rem;
-  color: blueviolet;
-}
-
-.text {
-  /* color: black; */
-  font-size: 1rem;
-  text-align: justify;
-}
-
-.title-home {
-  font-size: 1.5rem;
-  color: blue;
-}
 </style>
