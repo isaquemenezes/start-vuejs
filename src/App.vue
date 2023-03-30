@@ -1,38 +1,29 @@
 <template>
-  <FirstHeader 
-    v-show="showHeader"
-  />
+  <FirstHeader />
 
   <div>
-    <img 
-      :src="link_img" 
-      v-bind:alt="imgAlt"
+    <h1
+      :class="class_style"
+    >
+    Class e Styles Dinamicos</h1>
+
+     <h3
+      :class="{'class_style': true, 'title-home': isHome}"
+    >
+     By Object styles Dinamicos</h3>
+
+    <p
+      :class="[ 'text', 'class_style']"
     >
 
-   <div 
-    v-for="list in todos" 
-    :key="list.id"
-  >
-
-  <img 
-    v-if="list.link_user_img"
-    :src="list.link_user_img" 
-  />  
-  {{ list.id }} /{{ list.title }} / {{ list.completed }}
-  
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum molestiae, 
+      possimus quo veniam blanditiis at inventore adipisci ad id temporibus, 
+      enim, nam aut necessitatibus magni optio sed sint a! Adipisci!
+    </p>
   </div>
-
-  </div>
-
-  <div v-if="accessLevel === 'admin' ">User Admin </div>
-  <div v-else-if="accessLevel === 'marketing'">User Marketing </div>
-  <div v-else>User TI </div>
   
-  <img
-    alt="Vue logo" 
-    src="./assets/logo.png"
-  >
 
+  
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -50,54 +41,10 @@ export default {
 
   data() {
     return {
-      link_img: 'https://via.placeholder.com/150',
-      imgAlt:'foto lex',
-      todos: 
-        // 20230330093311
-        // https://jsonplaceholder.typicode.com/todos
+      isHome: false,
+      class_style: 'title',
+      text:'text'
 
-            [
-              {
-                "userId": 1,
-                "id": 1,
-                "title": "delectus aut autem",
-                "completed": false,
-                "link_user_img": 'https://via.placeholder.com/150',
-              },
-              {
-                "userId": 1,
-                "id": 2,
-                "title": "quis ut nam facilis et officia qui",
-                "completed": false,
-                "link_user_img": 'https://via.placeholder.com/150',
-              },
-              {
-                "userId": 1,
-                "id": 3,
-                "title": "fugiat veniam minus",
-                "completed": false,
-                "link_user_img": 'https://via.placeholder.com/150',
-              },
-              {
-                "userId": 1,
-                "id": 4,
-                "title": "et porro tempora",
-                "completed": true
-              },
-              {
-                "userId": 1,
-                "id": 5,
-                "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-                "completed": false
-              },
-              {
-                "userId": 1,
-                "id": 6,
-                "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-                "completed": false
-              }
-        
-            ]
     }
   }
 }
@@ -111,5 +58,21 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.title {
+  font-size: 3rem;
+  color: blueviolet;
+}
+
+.text {
+  /* color: black; */
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.title-home {
+  font-size: 1.5rem;
+  color: blue;
 }
 </style>
