@@ -2,96 +2,77 @@
   
 
   <div>
-    <h1>two way  data Biding </h1>
+    <h1>Propriedade Computada </h1>
     <p>v-model</p>
    
   </div>
-
+   <p>Fist Name: {{ user.fisrt_name }}</p>
+   <p>Last Name: {{ user.last_name }}</p>
+    <button @click="click()">Click</button>
+  <div>
+    
+  </div>
+  <br><br><br>
 
   <div>
-    <label for="">Nome: </label> <br>
-    <input 
-      v-model="name"
-      type="text"
-    
-    >
-    <button
-      v-on:click="onClick()"
-    >
-    Enviar
 
-    </button>
+    <p>Nome Completo</p>
+    {{ fullName }}
+    <br><br><br>
+    <div
+      v-for="todo in todos"
+      :key="todo.id"
+    >
+    {{ todo.title  }}
+   
+    
+
     </div>
-  <br><br><br>
-
-  <div>
-
-    <button
-      @click="_onClick"
-    >
-    Clickar e capturando o eventos
-
-    </button>
-   
 
   </div>
   <br><br><br>
 
   <div>
-    <form 
-      action="https://google.com/"
-      @submit="onSubmit()"
+    <p>Não completos </p>
+    <p 
+      v-for="todo in uncompletedTodos" 
+      :key="todo.id"
     >
-    <button
-      type="submit"
-    >
-    Clickar Form
-
-    </button>
-     </form>
+      {{  todo.completed }}</p>
+    <br><br>
     
+    <p>completos </p>
+    <p
+      v-for="todo in completedTodos"
+      :key="todo.id"
+    >
+      {{  todo.completed }}
+    </p>
+
   </div>
   <br><br><br>
 
   <div>
-
-    <h2>Modificadores de Eventos</h2>
     
-    <form 
-      action="https://google.com/"
-      @submit.prevent="onSubmit()"
+    <p>Todos</p>
+    <p
+      v-for="todo in todos"
+      :key="todo.id"   
     >
-    <button
-      type="submit"
-    >
-    Clickar Form
+      <input 
+        v-model="todo.completed"
+        type="checkbox"
+      >
 
-    </button>
+    {{ todo.title }} / {{ todo.completed }}
+    </p>
 
-   
-    </form>
-    
   </div>
   <br><br><br>
 
   
   <div>
-    <form 
     
-    
-    >
-    <button
-      type="submit"
-    >
-    Clickar Form
-
-    </button>
-
-    <input 
-      type="text"
-      @keyup="onKeyUp"
-    />
-    </form>
   </div>
 
   
@@ -110,25 +91,80 @@ export default {
 
   data() {
     return {
+      user: {
+        fisrt_name: 'Joao',
+        last_name: 'Marcos'
+      },
+
+      todos: 
+        // 20230330093311
+        // https://jsonplaceholder.typicode.com/todos
+            [
+              {
+                "userId": 1,
+                "id": 1,
+                "title": "delectus aut autem",
+                "completed": false
+              },
+              {
+                "userId": 1,
+                "id": 2,
+                "title": "quis ut nam facilis et officia qui",
+                "completed": false
+              },
+              {
+                "userId": 1,
+                "id": 3,
+                "title": "fugiat veniam minus",
+                "completed": false
+              },
+              {
+                "userId": 1,
+                "id": 4,
+                "title": "et porro tempora",
+                "completed": true
+              },
+              {
+                "userId": 1,
+                "id": 5,
+                "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+                "completed": false
+              },
+              {
+                "userId": 1,
+                "id": 6,
+                "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+                "completed": false
+              }
+        
+            ]
      
     
     }
   },
 
-  methods:{
-    onClick() {
-      console.log('Clickou !');
-    },
-    _onClick($e) {
-      console.log('Clickou com capture!', $e);
-    },
-    onSubmit() {
-      console.log('submit');
-    },
-    onKeyUp($event) {
-      console.log('up', $event);
+  methods: {
+    click() {
+      console.log(this.user);
     }
-  }
+  },
+
+  computed: {
+    fullName() {
+     return `${this.user.fisrt_name} ${this.user.last_name}` 
+    },
+
+    uncompletedTodos() {
+      return this.todos.filter(todo => !todo.completed);      
+    },
+
+    completedTodos() {
+      return this.todos.filter(todo => todo.completed);      
+    },
+  },
+
+  
+
 }
 </script>
 
