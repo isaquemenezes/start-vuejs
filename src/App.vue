@@ -1,135 +1,113 @@
 <template>
   
 
+
   <div>
-    <h1>Observadores Watch </h1>
-    <p>v-model</p>
-    
+    <TheHeader  v-if="showHeader" />
+
+    <h1>Ciclo de vida </h1>
+
     <input 
       v-model="name"
       type="text"
-    /> <br>
+    />
     {{ name }}
-   
+
+    <br>
+
+    <button @click="showHeader = !showHeader" >
+      Ativa e Desativar Header
+    </button>
   </div>
   <br> <br>
   
   <div>
-    <h2>Páginação de sistema</h2>
-    
-    <select v-model="pageCount" name="" id="">
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="15">15</option>
-      <option value="20">20</option>
-    </select> <br>
-
-    {{ pageCount }}
-  </div>
-  <br><br><br>
-
-  <div>
-
-    <label for="">First name:</label>
-    <input
-      v-model="user.first_name"
-      type="text" 
-    /> <br><br>
-    <p> {{ user.first_name }}</p>
-   
-
-    <label for="">Last name:</label>
-    <input
-      v-model="user.last_name"
-      type="text" 
-    /> <br> <br>
-    {{ user.last_name }}   
 
   </div>
-
-
   <br><br><br>
-
-    <div>
-      
-
-    </div>
-  <br><br><br>
-
-  <div>
-    
-   
-  </div>
-  <br><br><br>
-
   
   <div>
-    
   </div>
   
 </template>
 
 <script>
 
+import TheHeader from './components/TheHeader.vue';
 export default {
+  
   name: 'App',
   components: {
-    
+    TheHeader    
   },
 
   data() {
     return {
-      name: '',
-      pageCount:5,
-      user: {
-        first_name: '',
-        last_name: ''
-      }
+      name:'Lex Lutto',
+      showHeader: true
      
     }
   },
 
-  watch: {
-    // name(new_value, old_value) {
-    //   console.log(new_value, old_value);
-    // }
-    
-    // name() {
-    //   this.saveName();
-    // }
+  // Criação 
+    // Preparar o componente
+    // Ajax, inicializar algumas variaveis
+    // Nao tem acesso ao template (DOM)
+  // Montagem
+    // Inicializar um Lib externa (new Lib())
+    // Precisa de acesso ao template (DOM)
+    // Tem acesso ao template (DOM)
+  // Atualizacao
+    // Debug
+    // Update
+  // Desmontagem
+    // Remover tudo o que for necessário pra liberar memória (lib->desvtroy())
 
-    name(vl) {
-      if (vl.length >= 3)
-      {
-        this.saveName();
-      }
-    },
+  // Hooks
+      // beforeUpdate(){
+      //   console.log('before Update', this.name);
+      // },
+      
+      // updated() {
+        
+      //   console.log('Updated', this.name);
+      // },
 
-    pageCount() {
-      this.changePage();
-    },
+  // beforeCreate() {
+  //   console.log("before Create ===> ",this.name);
+  //   console.log("DOM = ", this.$el);
+  // },
+  
+  // created() {
+  //   console.log("Create ===>", this.name);
+  //   console.log("DOM = ", this.$el);
+  // },
+  
+  // beforeMount() {
+  //   console.log("Before Mount ==>",this.name);
+  //   console.log("DOM = ", this.$el);
+  // },
+  
+  // mounted(){
+  //   console.log("mounted ==>",this.name);
+  //   console.log("DOM = ", this.$el);
+  // },
+  
+  // beforeUnmount(){
+  //   console.log("before Unmount");
+  // },
+  
+  // unmounted(){
+  //   console.log("unmounted");
+  // },
+  
 
-    user: {
-      handler() {
-        console.log("Usr alterado!");
-      },
-      deep:true
-    }
-   
+  watch: {  
 
   },
 
   methods: {
-   saveName() {
-    console.log('Ajax');
-    console.log(this.name);
-   },
 
-   changePage() {
-    console.log('Ajax');
-    console.log('Change Page');
-
-   }
   },
 
   computed: {
