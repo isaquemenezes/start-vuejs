@@ -1,6 +1,20 @@
 <template>
     <header>
-         Header
+        <div>
+
+            <h1 class="title">
+                <slot name="title" />
+            </h1>
+
+            <div class="description">
+                <slot name="description" />
+            </div>
+        
+            <div class="content">
+                <slot />
+            </div>     
+        
+        </div>
     </header> 
        
   
@@ -8,24 +22,11 @@
 
     <script>
         export default {
-            mounted(){
-                window.addEventListener('resize', this.resize)
-            },
-            beforeUnmount() {
-                console.log('Before Unmount');
-                window.removeEventListener('resize', this.resize)
-            },
-
-            // unmounted() {
-            //     console.log('unmounted');
-            // }
-
-            methods: {
-                resize($ev) {
-                    console.log($ev);
-                }
+          
+            mounted() {
+                console.log(this.$el);
+                console.log(this.$slots);
             }
-            
         }
     </script>
 
