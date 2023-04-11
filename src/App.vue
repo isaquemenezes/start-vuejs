@@ -3,40 +3,26 @@
 
 
   <div>
-    <TheHeader>
-      <template v-slot:title>
-      Header Slot /
-      </template>
-
-      <template v-slot:description>
-        <p>Description</p>
-      </template>
-
-      <p>Content</p>
-      
-    </TheHeader>
-
+    <div class="card">
+      Testes de scoped
+    </div>
+    
+   <BaseCard/>
   </div>
   <br> <br>
   
-  <div>
-
-  </div>
-  <br><br><br>
-  
-  <div>
-  </div>
   
 </template>
 
 <script>
 
-import TheHeader from './components/TheHeader.vue';
+import BaseCard from '@/components/BaseCard.vue';
+
 export default {
   
   name: 'App',
   components: {
-    TheHeader    
+    BaseCard    
   },
 
   data() {
