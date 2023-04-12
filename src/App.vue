@@ -1,25 +1,45 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link :to="rotaDinamica">About</router-link> |
-    <RouterLink to="/service">Service</RouterLink> |
-    <RouterLink to="/usuarios/2">User</RouterLink> |
-    <router-link :to="{ name:'portfolio'}">Portfolio</router-link>
-  </nav>
-  <router-view/>
+
+  <button
+    @click="updateUser()"  
+  >
+    Atualizar perfil
+  </button>
+  <HelloWorld />
+
+  <!-- </HelloWorld> -->
 </template>
 
 <script>
+import HelloWorld  from "@/components/HelloWorld.vue";
 export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  },
   data() {
     return {
-      rotaDinamica: {
-        name: 'about'
+      
+    }
+  },
+  methods:{
+    updateUser() {
+        const User = {
+        first_name: 'sasuke',
+        last_name: 'uchiha',
+        email: 'sasukeuchiha@konohac.folha'
       }
+      this.$store.commit('storeUser', User);
+
     }
   },
   // created() {
-  //   console.log('App ',this.$store.state.user);
+  //   const User = {
+  //     first_name: 'sasuke',
+  //     last_name: 'uchiha',
+  //     email: 'sasukeuchiha@konohac.folha'
+  //   }
+  //   this.$store.commit('storeUser', User);
   // },
 }
 

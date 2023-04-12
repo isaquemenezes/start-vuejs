@@ -10,11 +10,15 @@ export default createStore({
     products: [],
     cads:[]
   },
-  getters: {
-  },
   mutations: {
+    storeUser(state, data) {
+      state.user = data
+      // console.log('store user',data);
+    }
   },
   actions: {
+  },
+  getters: {
   },
   modules: {
   }
