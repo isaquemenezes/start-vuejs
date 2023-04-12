@@ -6,8 +6,7 @@
             :product_="product"
         /> 
        
-        
-        
+    
     </div>
 </template>
 <script>
