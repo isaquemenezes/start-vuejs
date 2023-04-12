@@ -7,6 +7,10 @@
   <br>
   {{ $store.state.cart }}
 
+  <div>
+    <h2>Total {{ $store.getters.total }}</h2>
+  </div>
+
 
 </template>
 
