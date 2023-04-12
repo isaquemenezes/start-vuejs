@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link> |
     <router-link :to="rotaDinamica">About</router-link> |
     <RouterLink to="/service">Service</RouterLink> |
+    <RouterLink to="/usuarios/2">User</RouterLink> |
     <router-link :to="{ name:'portfolio'}">Portfolio</router-link>
   </nav>
   <router-view/>
