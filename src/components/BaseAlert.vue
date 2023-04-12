@@ -1,16 +1,30 @@
 <template>
     <div :class="baseClass">
-        <slot />
-        <!-- <p>{{ text }}</p>         -->
+       
+        {{ test }}
+
+        <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    props: [
-        'status',
-        // 'text'
-    ],
+    props: {
+        status: {
+            type: String,
+            default: ''
+        },
+        test: {
+            // type: String,
+            // default: 'test',
+            
+            type: Object,            
+            default: () => {
+                return {}
+            }
+        },
+    },
+
     computed: {
         baseClass() {
             return [
