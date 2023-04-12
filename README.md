@@ -22,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Router
+1. cli
+    vue add router
+2. npm 
+    npm install vue-router@4

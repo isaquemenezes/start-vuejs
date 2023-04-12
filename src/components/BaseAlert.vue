@@ -1,9 +1,13 @@
 <template>
     <div :class="baseClass">
-       
-        {{ test }}
 
         <slot></slot>
+
+        <button 
+            @click="onClick()"
+        >
+            fechar
+        </button>
     </div>
 </template>
 
@@ -14,15 +18,7 @@ export default {
             type: String,
             default: ''
         },
-        test: {
-            // type: String,
-            // default: 'test',
-            
-            type: Object,            
-            default: () => {
-                return {}
-            }
-        },
+        
     },
 
     computed: {
@@ -32,6 +28,12 @@ export default {
                 this.status ? `alert-${this.status}` : ''
             ]
         }
+    },
+    methods: {
+        onClick() {
+            this.$emit('close');
+            console.log('Clickou!');
+        }
     }
     
 }
@@ -39,6 +41,8 @@ export default {
 
 <style scoped>
     .alert {
+        display: flex;
+        justify-content: space-between;
         padding: 3px;
         border-radius: .5rem;
         color: greenyellow;

@@ -1,64 +1,27 @@
 <template>
-  
-
-
-  <div>
-    <div class="card">
-      Testes de scoped
-    </div>
-    
-  <BaseAlert 
-    :status="status_"      
-  >
-
-  <p> {{ text_  }}</p>
-
-  </BaseAlert>
-
-  </div>
-  <br> <br>
-  
-  
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link :to="rotaDinamica">About</router-link> |
+    <RouterLink to="/service">Service</RouterLink> |
+    <router-link :to="{ name:'portfolio'}">Portfolio</router-link>
+  </nav>
+  <router-view/>
 </template>
 
 <script>
-
-import BaseAlert from '@/components/BaseAlert.vue';
-
 export default {
-  
-  name: 'App',
-  components: {
-    BaseAlert     
-  },
-
   data() {
     return {
-     status_: 'success',
-     text_: 'Formulário Enviado Com Sucesso'
-     
+      rotaDinamica: {
+        name: 'about'
+      }
+
     }
-  },
 
-  
-
-  watch: {  
-
-  },
-
-  methods: {
-
-  },
-
-  computed: {
-  
-  },
-
-  
-
+  }
 }
-</script>
 
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -66,7 +29,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
