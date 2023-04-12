@@ -1,17 +1,24 @@
 <template>
-    <div :class="['alert', {
-        'alert-success': status === 'success',
-        'alert-danger': status === 'danger'
-    }]">
-        Seu Formulário foi enviado com sucess!        
+    <div :class="baseClass">
+        <slot />
+        <!-- <p>{{ text }}</p>         -->
     </div>
 </template>
 
 <script>
 export default {
     props: [
-        'status'
-    ]
+        'status',
+        // 'text'
+    ],
+    computed: {
+        baseClass() {
+            return [
+                'alert',
+                this.status ? `alert-${this.status}` : ''
+            ]
+        }
+    }
     
 }
 </script>

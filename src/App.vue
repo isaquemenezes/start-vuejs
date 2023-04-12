@@ -8,8 +8,12 @@
     </div>
     
   <BaseAlert 
-    status="success" 
-  />
+    :status="status_"      
+  >
+
+  <p> {{ text_  }}</p>
+
+  </BaseAlert>
 
   </div>
   <br> <br>
@@ -30,8 +34,8 @@ export default {
 
   data() {
     return {
-      name:'Lex Lutto',
-      showHeader: true
+     status_: 'success',
+     text_: 'Formulário Enviado Com Sucesso'
      
     }
   },
