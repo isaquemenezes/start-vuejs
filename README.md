@@ -25,6 +25,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Router
 1. cli
-    vue add router
+    `vue add router`
 2. npm 
-    npm install vue-router@4
+    `npm install vue-router@4`
+
+### VUEX -state
+1. cli 
+    `vue add vuex`
+
+2. npm 
+    `npm install vuex@next --save`

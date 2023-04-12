@@ -16,10 +16,11 @@ export default {
       rotaDinamica: {
         name: 'about'
       }
-
     }
-
-  }
+  },
+  // created() {
+  //   console.log('App ',this.$store.state.user);
+  // },
 }
 
 </script>
