@@ -1,18 +1,22 @@
 <template>
 
 
-  <AppProduct />
+  <AppProducts />
+
+  <br>
+  <br>
+  {{ $store.state.cart }}
 
 
 </template>
 
 <script>
-import AppProduct  from "@/components/Products/AppProducts.vue";
+import AppProducts  from "@/components/Products/AppProducts.vue";
 
 export default {
   name: 'App',
   components: {
-    AppProduct
+    AppProducts
   },
   data() {
     return {
