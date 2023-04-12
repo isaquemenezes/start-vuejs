@@ -2,19 +2,39 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    user:{
-      first_name: 'naruto',
-      last_name: 'uzumaki',
-      email: 'narutouzumaki@konohac.folha'
-    },
-    products: [],
-    cads:[]
+   
+    products: [
+      {
+          id: 1,
+          name: 'adaga',
+          price: 8
+      },
+      {
+        id: 2,
+        name: 'lanca',
+        price: 558
+      },
+      {
+        id: 3,
+        name: 'escudo',
+        price: 5847
+      },
+      {
+        id:4 ,
+        name: 'capacete',
+        price: 518
+      },
+      {
+        id: 5,
+        name: 'luvas',
+        price: 88
+      },
+
+    ],
+   
   },
   mutations: {
-    storeUser(state, data) {
-      state.user = data
-      // console.log('store user',data);
-    }
+   
   },
   actions: {
   },
