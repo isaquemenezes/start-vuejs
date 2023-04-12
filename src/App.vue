@@ -7,7 +7,10 @@
       Testes de scoped
     </div>
     
-   <BaseCard/>
+  <BaseAlert 
+    status="success" 
+  />
+
   </div>
   <br> <br>
   
@@ -16,13 +19,13 @@
 
 <script>
 
-import BaseCard from '@/components/BaseCard.vue';
+import BaseAlert from '@/components/BaseAlert.vue';
 
 export default {
   
   name: 'App',
   components: {
-    BaseCard    
+    BaseAlert     
   },
 
   data() {
