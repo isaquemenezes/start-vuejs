@@ -1,33 +1,12 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1> <br>
-
-
-    <h2>VUEX </h2> <br>
-    <p>state:</p>
-    <pre>
-      First Nome: {{ $store.state.user.first_name }} <br>
-      Last Name: {{ $store.state.user.last_name }} <br>
-      Email: {{ $store.state.user.email }} 
-    </pre>
-    
-    
+    <h1>Fazendo Requisições HTTP -API- Com Axios</h1> <br>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
-  created() {
-    console.log('Hello World ',this.$store.state.user);
-  },
-}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

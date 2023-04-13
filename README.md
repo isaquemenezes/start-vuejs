@@ -35,3 +35,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 2. npm 
     `npm install vuex@next --save`
+
+### Consumindo uma API RESTful 
+https://www.youtube.com/watch?v=lzbRNx05S00
+
+1. Instale o axios
+    `npm install axios` ou `npm i axios --save-dev`

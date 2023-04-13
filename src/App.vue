@@ -1,37 +1,39 @@
 <template>
  
-<AppButton
-  data-vue="Madara"
-  @update="getUpdate"
-  variant="danger"
->
-  Save
-  <template #icon>Icon
+<HelloWorld>
 
-  </template>
-</AppButton>
+</HelloWorld>
+
+<div>
+  <pre>
+    {{ pokemons }}
+  </pre>
+</div>
 </template>
 
 <script>
+import api from '@/services/api.ts'
+import { ref, onMounted } from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
 
-
-import AppButton from '@/components/AppButton.vue'
 export default {
   name: 'App',
-  components :{
-    AppButton
-   
-  },
+  components :{ HelloWorld },
+
   setup() {
-    const getUpdate = (data) => {
-      console.log('get Update...', data);
-    }
+
+    const pokemons = ref();
+
+    const fetchPokemons = () => api.get("/pokemon?limit=20")
+      .then((response) =>(pokemons.value = response.data.results));
+
+      onMounted(fetchPokemons);
 
     return {
-      getUpdate
+      pokemons      
     }
+   
   }
-
 
  
 }
