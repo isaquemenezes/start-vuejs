@@ -1,7 +1,13 @@
 <template>
  
-<AppButton>
+<AppButton
+  data-vue="Madara"
+  @update="getUpdate"
+>
   Save
+  <template #icon>Icon
+
+  </template>
 </AppButton>
 </template>
 
@@ -15,6 +21,15 @@ export default {
     AppButton
    
   },
+  setup() {
+    const getUpdate = (data) => {
+      console.log('get Update...', data);
+    }
+
+    return {
+      getUpdate
+    }
+  }
 
 
  

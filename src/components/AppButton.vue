@@ -1,8 +1,11 @@
 <template>
     <div>
-        <button>
+        <button
+        @click="$emit('update', true)"
+        >
             {{ variant }}
             <slot></slot>
+            <slot name="icon"></slot>
         </button>
       
     </div>
@@ -16,8 +19,11 @@ export default {
         }
     },
 
-    setup(props) {
-        console.log(props.variant);
+    // setup(props, ctx) {
+        // acesso direto
+    setup(props, slots) {
+        
+        console.log(slots);
 
     }
     
