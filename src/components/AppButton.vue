@@ -1,7 +1,7 @@
 <template>
     <div>
         <button
-        @click="$emit('update', true)"
+        @click="sendData()"
         >
             {{ variant }}
             <slot></slot>
@@ -11,6 +11,8 @@
     </div>
 </template>
 <script>
+
+
 export default {
     props: {
         variant: {
@@ -21,9 +23,16 @@ export default {
 
     // setup(props, ctx) {
         // acesso direto
-    setup(props, slots) {
-        
-        console.log(slots);
+    setup(props, { emit }) {
+          
+        const sendData = () => {
+            // emit('update', false);
+            emit('update', props.variant);
+        }
+
+        return {
+            sendData
+        }
 
     }
     

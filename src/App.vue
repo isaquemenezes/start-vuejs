@@ -3,6 +3,7 @@
 <AppButton
   data-vue="Madara"
   @update="getUpdate"
+  variant="danger"
 >
   Save
   <template #icon>Icon
