@@ -65,11 +65,15 @@ export default createStore({
     },
   },
   actions: {
-    storeUser(context, data) {
-      // console.log(context, data);
-      // console.log(context.getters.total);
-      // context.state.user = data;
-      context.commit('storeUser',data);
+    storeUser({ commit }, data) {
+      return new Promise ((res) => {
+        setTimeout(() => {
+          // console.log('here');
+          commit('storeUser',data);
+          res()
+
+        }, 3000)
+      })
     }
   },
   modules: {

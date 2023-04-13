@@ -49,6 +49,9 @@ export default {
 
       }
       this.$store.dispatch('storeUser', newUser)
+        .then(() => {
+          console.log('Terminou com successo!');
+        })
     },
     
   }
