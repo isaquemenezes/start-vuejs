@@ -1,39 +1,21 @@
 <template>
-  <AppHook
-    v-if="showAppHook" 
-  />
-
-  <button
-  @click="showAppHook = !showAppHook"
-  >
-toggle
-  </button>
-
+ 
+<AppButton>
+  Save
+</AppButton>
 </template>
 
 <script>
-import { ref} from 'vue'
-import AppHook from '@/components/AppHook.vue'
 
+
+import AppButton from '@/components/AppButton.vue'
 export default {
+  name: 'App',
   components :{
-    AppHook
+    AppButton
+   
   },
 
-
-  setup() {
-
-    const showAppHook = ref(true)
-   
-
-    return {
-
-      showAppHook
-  
-       
-    }
-  }
-  
 
  
 }
