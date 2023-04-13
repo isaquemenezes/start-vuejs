@@ -5,8 +5,15 @@
 </HelloWorld>
 
 <div>
-  <pre>
-    {{ pokemons }}
+  <!-- <pre 
+    v-for="(pokemon, index) in pokemons"
+    :key="index"
+  > -->
+  <pre 
+    v-for="pokemon in pokemons"
+    :key="pokemon.id"
+  >
+  Name: {{ pokemon.name }}
   </pre>
 </div>
 </template>
