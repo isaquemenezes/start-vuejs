@@ -1,60 +1,54 @@
 <template>
 
 
-  <AppProducts />
 
   <br>
   <br>
-  {{ $store.state.cart }}
+  {{ name }}
 
   <div>
-    <h2>Total {{ $store.getters.total }}</h2>
+  <button
+    @click="changeName"
+  >
+  Change Name 
+
+  </button>
   </div>
 
-  <div>
-
-    {{ $store.state.user.first_name }} <br>
-    {{ $store.state.user.last_name }} <br>
-
-    <button
-      @click="updated()"
-    >
-    atualizar
-    </button>
-  </div>
+  
 
 
 </template>
 
 <script>
-import AppProducts  from "@/components/Products/AppProducts.vue";
 
 export default {
   name: 'App',
   components: {
-    AppProducts
-  },
-  data() {
-    return {
-      
-    }
-  },
-
-  methods: {
-    updated() {
-      const newUser = {
-        first_name: 'zero',
-        last_name: 'lucit',
-        email: 'zero@zero.com'
-
-      }
-      this.$store.dispatch('storeUser', newUser)
-        .then(() => {
-          console.log('Terminou com successo!');
-        })
-    },
     
+  },
+  // data() {
+  //   return {
+      
+  //   }
+  // },
+
+  setup() {
+    // const  name = "Cezar";
+    let  name = 'Cezar'
+
+    const changeName = () => {
+      console.log('test');
+      name = 'Marcos'
+    } 
+
+    return {
+      name,
+      changeName 
+    }
   }
+  
+
  
 }
 
