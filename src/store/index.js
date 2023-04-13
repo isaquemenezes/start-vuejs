@@ -2,6 +2,10 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    user: {
+      first_name: 'madara',
+      last_name:'uchiha'
+    },
    
     products: [
       {
@@ -35,7 +39,10 @@ export default createStore({
    
   },
   mutations: {
-    
+    storeUser(state, data) {
+      state.user = data
+    },
+        
     addProduct(state, data) {
       state.cart.push(data)
     },
@@ -58,6 +65,12 @@ export default createStore({
     },
   },
   actions: {
+    storeUser(context, data) {
+      // console.log(context, data);
+      // console.log(context.getters.total);
+      // context.state.user = data;
+      context.commit('storeUser',data);
+    }
   },
   modules: {
   }
